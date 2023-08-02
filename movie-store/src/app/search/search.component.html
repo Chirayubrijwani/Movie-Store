@@ -1,0 +1,10 @@
+<div class="search-container">
+<h2>Search Movies</h2>
+<input type="text" [(ngModel)]="searchText" (keyup)="onSearch()" />
+<ul>
+    <li *ngFor="let movie of searchResults">
+        <a (click)="goToMovieDetails(movie.info.rank)">{{movie.title}}</a>
+    </li>
+</ul>
+</div>
+

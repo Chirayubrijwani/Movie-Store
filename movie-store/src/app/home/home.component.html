@@ -1,0 +1,11 @@
+<div class="home-content">
+<div>
+    <h1>Welcome to Movie App</h1>
+</div>
+<div *ngIf="topMovies.length > 0">
+    <h2>Top 4 Movies Release Date</h2>
+    <ul>
+        <li *ngFor="let movie of topMovies">{{movie.title}}</li>
+    </ul>
+</div>
+</div>
