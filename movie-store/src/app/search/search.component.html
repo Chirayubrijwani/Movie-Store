@@ -1,10 +1,96 @@
+<!-- <div class="container">
+    <h1 class="heading">Search Movies</h1>
+
+
+
+
 <div class="search-container">
-<h2>Search Movies</h2>
-<input type="text" [(ngModel)]="searchText" (keyup)="onSearch()" />
-<ul>
+    <div class="search-input">
+      <input
+        type="text"
+        placeholder="Search movies..."
+        [(ngModel)]="searchText"
+        (input)="onSearch()"
+      />
+      <button (keyup)="onSearch()">Search</button>
+    </div>
+  </div>
+
+  <ng-container *ngIf="searchResults.length > 0; else noMovies">
+    <div class="movies-container">
+      <div class="movie-card" *ngFor="let movie of searchResults">
+          <div class="movie-logo">
+              <img [src]="movie.info.image_url ? movie.info.image_url : './assets/default.jpg'"
+              alt="{{ movie.title }} Logo" />
+            </div>
+      <div class="movie-info">
+          <a (click)="goToMovieDetails(movie.info.rank)">{{movie.title}}</a>
+          
+          <p *ngIf="movie.info.directors"><strong>Director:</strong> {{ movie.info.directors.join(', ') }}</p>
+          <p *ngIf="movie.info.genres"><strong>Genres:</strong> {{ movie.info.genres.join(', ') }}</p>
+          <p *ngIf="movie.info.rating"><strong>Rating:</strong> {{ movie.info.rating }}</p>
+      </div> 
+      </div>
+    </div>
+  </ng-container>
+    </div> -->
+
+
+    <!-- <ng-template #noMovies>
+        <p class="no-movies-message">No movies found.</p>
+      </ng-template> -->
+
+<!-- <ul>
     <li *ngFor="let movie of searchResults">
         <a (click)="goToMovieDetails(movie.info.rank)">{{movie.title}}</a>
     </li>
-</ul>
-</div>
+</ul> -->
+
+<!-- </div> -->
+
+
+<!-- search.component.html -->
+<div class="container">
+    <h1 class="heading">Search Movies</h1>
+  
+    <div class="search-container">
+      <div class="search-input">
+        <input
+          type="text"
+          placeholder="Search movies..."
+          [(ngModel)]="searchText"
+          (input)="onSearch()"
+        />
+        <button (keyup)="onSearch()">Search</button>
+      </div>
+    </div>
+  
+    <div class="search-results">
+      <ng-container *ngIf="searchResults.length > 0; else noResults">
+        <div class="movie-card" *ngFor="let movie of searchResults">
+          <div class="movie-logo">
+            <img
+              *ngIf="movie.info.image_url"
+              src="{{ movie.info.image_url }}"
+              alt="{{ movie.title }} Logo"
+            />
+            <div *ngIf="!movie.info.image_url" class="default-logo">
+              <span>Movie Logo Unavailable</span>
+            </div>
+          </div>
+          <div class="movie-info">
+            <a (click)="goToMovieDetails(movie.info.rank)">{{movie.title}}</a>
+           <!-- <p><strong>Director:</strong> {{ movie.info.directors.join(', ') }}</p>
+            <p><strong>Genres:</strong> {{ movie.info.genres.join(', ') }}</p> -->
+            <p><strong>Rating:</strong> {{ movie.info.rating }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
+  <ng-template #noResults>
+    <p class="no-results-message">No movies found.</p>
+  </ng-template>
+  
 

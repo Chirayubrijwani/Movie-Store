@@ -1,11 +1,40 @@
-<div class="home-content">
-<div>
-    <h1>Welcome to Movie App</h1>
-</div>
-<div *ngIf="topMovies.length > 0">
-    <h2>Top 4 Movies Release Date</h2>
-    <ul>
-        <li *ngFor="let movie of topMovies">{{movie.title}}</li>
-    </ul>
-</div>
-</div>
+
+<!-- home.component.html -->
+<div class="container">
+    <h1 class="heading">Top 4 Movies</h1>
+
+<div class="search-container">
+    <div class="search-input">
+    <input
+      type="text"
+      placeholder="Search movies..."
+      [(ngModel)]="searchText"
+      (input)="onSearch()"
+    />
+    <button (click)="onSearch()">Search</button>
+    </div>
+  </div>
+  
+  <ng-container *ngIf="topMovies.length > 0; else noMovies">
+  <div class="movies-container">
+    <div class="movie-card" *ngFor="let movie of topMovies">
+        <div class="movie-logo">
+            <img [src]="movie.info.image_url ? movie.info.image_url : './assets/default.jpg'"
+            alt="{{ movie.title }} Logo" />
+          </div>
+    <div class="movie-info">
+        <h3>{{ movie.title }}</h3>
+        <!-- <p *ngIf="movie.info.year"><strong>Year:</strong> {{ movie.year }}</p> -->
+        <p *ngIf="movie.info.directors"><strong>Director:</strong> {{ movie.info.directors.join(', ') }}</p>
+        <p *ngIf="movie.info.genres"><strong>Genres:</strong> {{ movie.info.genres.join(', ') }}</p>
+        <p *ngIf="movie.info.rating"><strong>Rating:</strong> {{ movie.info.rating }}</p>
+    </div> 
+    </div>
+  </div>
+</ng-container>
+  </div>
+
+  <ng-template #noMovies>
+    <p class="no-movies-message">No movies found.</p>
+  </ng-template>
+  

@@ -1,30 +1,78 @@
 
-<div class="movie-container">
-    <div *ngIf="selectedMovie">
-    <h2>{{ selectedMovie.title }} ({{ selectedMovie.year }})</h2>
-    <div class="movie-details">
-      <div class="movie-image">
-        <img src="{{ selectedMovie.info.image_url }}" alt="{{ selectedMovie.title }}" />
-      </div>
-      <div class="movie-info">
-        <p><strong>Director:</strong> {{ selectedMovie.info?.directors?.join(', ') }}</p>
-        <p><strong>Release Date:</strong> {{ selectedMovie.info?.release_date }}</p>
-        <p><strong>Rating:</strong> {{ selectedMovie.info?.rating }}</p>
-        <p><strong>Genres:</strong> {{ selectedMovie.info?.genres?.join(', ') }}</p>
-        <p><strong>Plot:</strong> {{ selectedMovie.info?.plot }}</p>
-        <p><strong>Rank:</strong> {{ selectedMovie.info.rank }}</p>
-        <!-- <p><strong>Running Time:</strong> {{ selectedMovie.info.running_time_secs / 60 }} minutes</p> -->
-        <p ><strong>Actors:</strong> {{ selectedMovie.info?.actors?.join(', ') }}</p>
-  
-      </div>
-    </div>
-  </div>
+    
 
+
+  <!-- movie.component.html -->
+ <div *ngIf="selectedMovie" class="container">
+    <div class="movie-card">
+        <div class="movie-logo">
+            <img *ngIf="selectedMovie.info.image_url" src="{{ selectedMovie.info.image_url }}" alt="{{ selectedMovie.title }}" />
+          </div>
+          <div *ngIf="!selectedMovie.info.image_url" class="default-logo">
+        <span>Movie Logo Unavailable</span>
+      </div>
+
+          <div class="movie-info">
+            <h2>{{ selectedMovie.title }} ({{ selectedMovie.year }})</h2>
+            <p *ngIf="selectedMovie.info.directors"><strong>Director:</strong> {{ selectedMovie.info.directors.join(', ') }}</p>
+            <p *ngIf="selectedMovie.info.release_date"><strong>Release Date:</strong> {{getIsoDate(selectedMovie.info.release_date) }}</p>
+            
+            <p *ngIf="selectedMovie.info.rating"><strong>Rating:</strong> {{ selectedMovie.info.rating }}</p>
+            <p *ngIf="selectedMovie.info.genres"><strong>Genres:</strong> {{ selectedMovie.info.genres.join(', ') }}</p>
+            <p *ngIf="selectedMovie.info.plot"><strong>Plot:</strong> {{ selectedMovie.info.plot }}</p>
+            <p *ngIf="selectedMovie.info.rank"><strong>Rank:</strong> {{ selectedMovie.info.rank }}</p>
+            <p *ngIf="selectedMovie.info.running_time_secs"><strong>Running Time:</strong> {{ selectedMovie.info.running_time_secs / 60 }} minutes</p>
+            <p *ngIf="selectedMovie.info.actors"><strong>Actors:</strong> {{ selectedMovie.info.actors.join(', ') }}</p>
+          </div>
+      
+      
+         
+              
+          
+        </div>
+      
+    </div>
+    
+  
+  
   <div *ngIf="!selectedMovie" class="error-message">
     Movie not found.
+  </div> 
+
+  <!-- <div *ngIf="selectedMovie" class="movie-container">
+    <div class="movie-image">
+      <img *ngIf="selectedMovie.info.image_url" src="{{ selectedMovie.info.image_url }}" alt="{{ selectedMovie.title }}" />
+    </div>
+    <div class="movie-info">
+      <h2>{{ selectedMovie.title }} ({{ selectedMovie.year }})</h2>
+      <p *ngIf="selectedMovie.info.directors"><strong>Director:</strong> {{ selectedMovie.info.directors.join(', ') }}</p>
+      <p *ngIf="selectedMovie.info.release_date"><strong>Release Date:</strong> {{ selectedMovie.info.release_date }}</p>
+      <p *ngIf="selectedMovie.info.rating"><strong>Rating:</strong> {{ selectedMovie.info.rating }}</p>
+      <p *ngIf="selectedMovie.info.genres"><strong>Genres:</strong> {{ selectedMovie.info.genres.join(', ') }}</p>
+      <p *ngIf="selectedMovie.info.plot"><strong>Plot:</strong> {{ selectedMovie.info.plot }}</p>
+      <p *ngIf="selectedMovie.info.rank"><strong>Rank:</strong> {{ selectedMovie.info.rank }}</p>
+      <p *ngIf="selectedMovie.info.running_time_secs"><strong>Running Time:</strong> {{ selectedMovie.info.running_time_secs / 60 }} minutes</p>
+      <p *ngIf="selectedMovie.info.actors"><strong>Actors:</strong> {{ selectedMovie.info.actors.join(', ') }}</p>
+    </div>
+
+
+   
+        
+    
   </div>
+
   
-  </div>
+  
+  <div *ngIf="!selectedMovie" class="error-message">
+    Movie not found.
+  </div> 
+
+ -->
+
+  <!-- movie.component.html -->
+  
+  
+  
 
 
   

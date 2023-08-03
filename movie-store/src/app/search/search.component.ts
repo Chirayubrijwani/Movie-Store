@@ -34,7 +34,8 @@ export class SearchComponent implements OnInit {
       this.searchResults = this.movieService.searchMovies(searchText);
     }
   }
-
+// Search on directors,actors,geners
+//Local storage on state
   // onSearch(): void {
   //   if(this.searchText.trim() === '') {
   //     this.searchResults = [];

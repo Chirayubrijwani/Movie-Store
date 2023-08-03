@@ -1,54 +1,149 @@
-/* movie.component.css */
+/* 
 
-/* Styles for the movie container */
-.movie-container {
-    background-color: #f5f5f5;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
-  /* Grid layout styles for displaying movies */
-  .movie-details {
+  .search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+  }
+  
+  .search-container button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .search-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .movies-container {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: 20px;
   }
   
-  /* Style for movie image */
-  .movie-image img {
-    max-width: 100%;
-    height: auto;
+  .movie-card {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
   }
   
-  /* Styles for movie info */
+  .movie-logo {
+    flex: 0 0 100px;
+    margin-right: 20px;
+  }
+  
+  .movie-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+  }
+  
+  .movie-info {
+    flex: 1;
+  }
+  
+  .movie-info h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
   .movie-info p {
     margin: 5px 0;
   }
   
-  /* Styles for handling more than 10 movies */
-  .movie-info {
-    /* Set max-height for more than 10 movies */
-    max-height: 400px;
-    overflow-y: auto;
+  .no-movies-message {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+  }
+   */
+
+   /* movie.component.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
   }
   
-  /* Styles for handling the logo when more than 10 movies */
-  .movie-info.with-logo {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-gap: 20px;
+  .movie-card {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Styles for the logo image */
-  .movie-info.with-logo img {
+  .movie-logo {
+    flex: 0 0 200px;
+    margin-right: 20px;
+  }
+  
+  .movie-logo img {
     max-width: 100%;
-    max-height: 150px;
+    max-height: 200px;
     object-fit: contain;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .default-logo {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .movie-info {
+    flex: 1;
+  }
+  
+  .movie-info h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .movie-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .movie-info p strong {
+    font-weight: bold;
+    color: #222;
   }
   
