@@ -13,7 +13,7 @@ import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
 export class SearchComponent implements OnInit {
   searchText = '';
   searchResults: Movie[] = [];
-  private searchSubject = new Subject<string>();
+  searchSubject = new Subject<string>();
 
   constructor(private movieService: MovieService,
     private router: Router) {}
