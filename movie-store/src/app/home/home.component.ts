@@ -26,19 +26,15 @@ export class HomeComponent {
     });
   }
 
-  onSearch() {
-    // Filter the top movies based on the search text
-    this.topMovies = this.movieService
-      .searchMovies(this.searchText)
-      .sort((a, b) => b.year - a.year)
-      // .slice(0, 4);
+onSearch() {
+    if (this.searchText) {
+      // Filter the top movies based on the search text
+      this.topMovies = this.movieService
+        .searchMovies(this.searchText)
+        .sort((a, b) => b.year - a.year);
+    } else {
+      // If the search text is empty, reload the top movies
+      this.loadTopMovies();
+    }
   }
-
-
-// Method 1
-   // 1.fetch without search string
-  //  2.filter by year desc(top 4)
-  // Method 2
-    //1. Fetch with search string
-    //2.By year desc ()
 }

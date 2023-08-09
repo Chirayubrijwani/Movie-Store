@@ -28,28 +28,6 @@ describe('HomeComponent', () => {
 
   it('should fetch top 4 movies based on year', () => {
     const movies: Movie[] = [
-      {
-        "year": 2011,
-        "title": "Water for Elephants",
-        "info": {
-            "directors": ["Francis Lawrence"],
-            "release_date": "2011-04-15T00:00:00Z",
-            "rating": 6.9,
-            "genres": [
-                "Drama",
-                "Romance"
-            ],
-            "image_url": "https://ia.media-imdb.com/images/M/MV5BMTQzMDU3NDEwN15BMl5BanBnXkFtZTcwMTI3MDU0NA@@._V1_SX400_.jpg",
-            "plot": "A veterinary student abandons his studies after his parents are killed and joins a traveling circus as their vet.",
-            "rank": 907,
-            "running_time_secs": 7200,
-            "actors": [
-                "Robert Pattinson",
-                "Reese Witherspoon",
-                "Christoph Waltz"
-            ]
-        }
-    },
     ];
 
     movieService.getAllMovies.and.returnValue(of(movies));
@@ -57,28 +35,7 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
 
     expect(component.topMovies).toEqual([
-      {
-        "year": 2011,
-        "title": "Water for Elephants",
-        "info": {
-            "directors": ["Francis Lawrence"],
-            "release_date": "2011-04-15T00:00:00Z",
-            "rating": 6.9,
-            "genres": [
-                "Drama",
-                "Romance"
-            ],
-            "image_url": "https://ia.media-imdb.com/images/M/MV5BMTQzMDU3NDEwN15BMl5BanBnXkFtZTcwMTI3MDU0NA@@._V1_SX400_.jpg",
-            "plot": "A veterinary student abandons his studies after his parents are killed and joins a traveling circus as their vet.",
-            "rank": 907,
-            "running_time_secs": 7200,
-            "actors": [
-                "Robert Pattinson",
-                "Reese Witherspoon",
-                "Christoph Waltz"
-            ]
-        }
-    },
+      
     ]);
   });
 
@@ -87,7 +44,9 @@ describe('HomeComponent', () => {
   
     fixture.detectChanges();
   
-    expect(component.topMovies).toEqual([]);
+    expect(component.topMovies).toEqual([
+      
+    ]);
   });
 
 

@@ -20,7 +20,9 @@ export class MovieService {
    searchMovies(searchText: string): Movie[] {
     //Implement movie search based on the searchText provided
      return this.movies.filter(movie => 
+      //By adding the or condition we can add search based on genere,actor etc 
       movie.title.toLowerCase().includes(searchText.toLowerCase()) 
+     // Present search is based on movie title
 )
    }
 
@@ -28,11 +30,4 @@ export class MovieService {
      // Implement logic to get a movie by its ID
     return this.movies.find(movie => movie.info.rank === rank);
    }
-
-  //  getMovieByTitle(title: string): Movie | undefined {
-  //   // Implement logic to get a movie by its ID
-  //  return this.movies.find(movie => movie.title === title);
-  // }
-
-
 }

@@ -1,103 +1,25 @@
-/* 
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .search-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-container input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    flex: 1;
-  }
-  
-  .search-container button {
-    margin-left: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .search-container button:hover {
-    background-color: #0056b3;
-  }
-  
-  .movies-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .movie-card {
-    background-color: #f5f5f5;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-  }
-  
-  .movie-logo {
-    flex: 0 0 100px;
-    margin-right: 20px;
-  }
-  
-  .movie-logo img {
-    max-width: 100%;
-    max-height: 80px;
-    object-fit: contain;
-  }
-  
-  .movie-info {
-    flex: 1;
-  }
-  
-  .movie-info h3 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .movie-info p {
-    margin: 5px 0;
-  }
-  
-  .no-movies-message {
-    text-align: center;
-    font-size: 16px;
-    color: #999;
-  }
-   */
-
-   /* movie.component.css */
+/* movie.component.css */
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #f4f4f4; /* light gray background */
+    border-radius: 10px;
   }
   
   .movie-card {
     display: flex;
     align-items: center;
-    background-color: #f5f5f5;
+    background-color: #fff; /* white background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease; /* add transition for smooth animation */
+  }
+  
+  .movie-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .movie-logo {
@@ -114,16 +36,19 @@
   }
   
   .default-logo {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #666;
-    font-size: 16px;
+    background-color: #ccc; /* lighter gray background */
+    border: 2px solid #999; /* gray border */
+    border-radius: 50%; /* make it circular */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* darker box shadow */
+    color: #333; /* darker text color */
+    font-size: 18px; /* larger font size */
+    padding: 10px; /* add some padding */
+    margin: 10px auto; /* add some margin and center the logo horizontally */
   }
   
   .movie-info {
@@ -146,4 +71,7 @@
     font-weight: bold;
     color: #222;
   }
+  
+  
+  
   
